@@ -20,8 +20,6 @@ intel-media-driver
 libva-intel-driver
 libva-nvidia-driver
 grub
-grub-btrfs
-snap-pac
 linux
 linux-firmware
 linux-headers
