@@ -25,7 +25,7 @@ if command -v limine &>/dev/null && [[ -f /etc/default/limine ]]; then
         sudo efibootmgr --create \
           --disk "$(findmnt -n -o SOURCE /boot | sed 's/p\?[0-9]*$//')" \
           --part "$(findmnt -n -o SOURCE /boot | grep -o 'p\?[0-9]*$' | sed 's/^p//')" \
-          --label "Omarchy" \
+          --label "Jammarchy" \
           --loader "\\EFI\\Linux\\$uki_file"
       fi
     fi

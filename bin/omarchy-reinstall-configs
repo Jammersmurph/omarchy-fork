@@ -12,7 +12,7 @@ if (( EUID == 0 )); then
   exit 1
 fi
 
-echo "Resetting all Omarchy configs"
+echo "Resetting all Jammarchy configs"
 cp -R ~/.local/share/omarchy/config/* ~/.config/
 cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
 echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' | tee ~/.bash_profile >/dev/null

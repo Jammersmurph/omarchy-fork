@@ -30,7 +30,7 @@ show_json() {
 
 show_help() {
   cat <<'EOF'
-Omarchy bin metadata
+Jammarchy bin metadata
 
 Metadata lives in the top comment block of each executable bin/omarchy-* file.
 Keep it slim: define only fields that are required or override defaults.
