@@ -27,4 +27,4 @@ rm -rf ~/.local/share/omarchy/
 git clone https://github.com/Jammersmurph/omarchy-fork.git ~/.local/share/omarchy >/dev/null
 
 echo -e "\nInstallation starting..."
-exec bash ~/.local/share/omarchy/install.sh
+source ~/.local/share/omarchy/install.sh
