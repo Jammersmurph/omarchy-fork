@@ -5,14 +5,23 @@ sudo ln -snf /usr/share/icons/Adwaita/symbolic/actions/go-next-symbolic.svg /usr
 # Setup user theme folder
 mkdir -p ~/.config/omarchy/themes
 
-# Chromium policy directory for theme
-sudo mkdir -p /etc/chromium/policies/managed
-sudo chmod a+rw /etc/chromium/policies/managed
+# Brave policy directory for theme and extensions
+sudo mkdir -p /etc/brave/policies/managed
+sudo chmod a+rw /etc/brave/policies/managed
+
+# Force-install extensions via Brave managed policy
+cat <<'POLICY' | sudo tee /etc/brave/policies/managed/extensions.json >/dev/null
+{
+  "ExtensionInstallForcelist": [
+    "aeblfdkhhhdcdjpifhhbdiojplfjncoa;https://clients2.google.com/service/update2/crx",
+    "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
+  ]
+}
+POLICY
 
 # Set initial theme
 omarchy-theme-install https://github.com/JJDizz1L/aetheria.git
 omarchy-theme-set "aetheria"
-rm -rf ~/.config/chromium/SingletonLock # otherwise archiso will own the chromium singleton
 
 # Set specific app links for current theme
 mkdir -p ~/.config/btop/themes
@@ -21,5 +30,5 @@ ln -snf ~/.config/omarchy/current/theme/btop.theme ~/.config/btop/themes/current
 mkdir -p ~/.config/mako
 ln -snf ~/.config/omarchy/current/theme/mako.ini ~/.config/mako/config
 
-# Default Chromium to follow system appearance ("device") instead of dark
-echo '{"browser":{"theme":{"color_scheme":0,"color_scheme2":0}}}' | sudo tee /usr/lib/chromium/initial_preferences >/dev/null
+# Set Brave as default browser
+omarchy-default-browser brave

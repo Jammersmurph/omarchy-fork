@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # omarchy:summary=Install a supported browser
-# omarchy:args=<chrome|brave|brave-origin|edge|firefox|zen>
-# omarchy:examples=omarchy install browser firefox | omarchy install browser brave
+# omarchy:args=<brave|chrome|brave-origin|edge|firefox|zen>
+# omarchy:examples=omarchy install browser brave | omarchy install browser firefox
 
 setup_policy_directory() {
   sudo mkdir -p "$1"
@@ -57,6 +57,7 @@ brave)
   setup_policy_directory /etc/brave/policies/managed
   copy_chromium_flags ~/.config/brave-flags.conf
   omarchy-theme-set-browser
+  omarchy-default-browser brave
   announce_browser_installed "Brave"
   ;;
 brave-origin)
@@ -87,7 +88,7 @@ zen)
   announce_browser_installed "Zen"
   ;;
 *)
-  echo "Usage: omarchy-install-browser <chrome|brave|brave-origin|edge|firefox|zen>"
+  echo "Usage: omarchy-install-browser <brave|chrome|brave-origin|edge|firefox|zen>"
   exit 1
   ;;
 esac
