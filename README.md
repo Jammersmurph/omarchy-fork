@@ -7,7 +7,7 @@ Read more at [omarchy.org](https://omarchy.org).
 ## Install
 
 ```bash
-bash <(curl -s https://omarchy.createvc.org)
+bash <(curl -sL https://omarchy.createvc.org)
 ```
 
 ## License
