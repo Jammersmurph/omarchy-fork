@@ -5,6 +5,9 @@ sudo ln -snf /usr/share/icons/Adwaita/symbolic/actions/go-next-symbolic.svg /usr
 # Setup user theme folder
 mkdir -p ~/.config/omarchy/themes
 
+# Install Brave browser via official install script
+curl -fsS https://dl.brave.com/install.sh | sudo sh
+
 # Brave policy directory for theme and extensions
 sudo mkdir -p /etc/brave/policies/managed
 sudo chmod a+rw /etc/brave/policies/managed
