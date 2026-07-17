@@ -7,7 +7,7 @@ Read more at [omarchy.org](https://omarchy.org).
 ## Install
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Jammersmurph/omarchy-fork/networkmanager-grub/boot.sh)
+bash <(curl -s https://omarchy.createvc.org)
 ```
 
 ## License
