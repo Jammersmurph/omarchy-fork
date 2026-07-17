@@ -25,7 +25,7 @@ sudo pacman -Syu --noconfirm --needed git
 
 echo -e "\nCloning Omarchy fork from: https://github.com/Jammersmurph/omarchy-fork.git"
 rm -rf ~/.local/share/omarchy/
-git clone --branch networkmanager-grub https://github.com/Jammersmurph/omarchy-fork.git ~/.local/share/omarchy >/dev/null
+git clone https://github.com/Jammersmurph/omarchy-fork.git ~/.local/share/omarchy >/dev/null
 
 echo -e "\nInstallation starting..."
 source ~/.local/share/omarchy/install.sh
