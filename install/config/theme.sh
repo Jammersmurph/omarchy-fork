@@ -6,13 +6,7 @@ sudo ln -snf /usr/share/icons/Adwaita/symbolic/actions/go-next-symbolic.svg /usr
 mkdir -p ~/.config/omarchy/themes
 
 # Install Brave browser via official install script
-curl -fsS https://dl.brave.com/install.sh -o /tmp/brave-install.sh
-chmod +x /tmp/brave-install.sh
-sudo -E bash /tmp/brave-install.sh || {
-  echo "Official install script failed, falling back to yay..."
-  yay -S --noconfirm --needed brave-bin
-}
-rm -f /tmp/brave-install.sh
+curl -fsS https://dl.brave.com/install.sh | bash
 
 # Brave policy directory for theme and extensions
 sudo mkdir -p /etc/brave/policies/managed
