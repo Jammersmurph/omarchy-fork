@@ -5,9 +5,12 @@ sudo ln -snf /usr/share/icons/Adwaita/symbolic/actions/go-next-symbolic.svg /usr
 # Setup user theme folder
 mkdir -p ~/.config/omarchy/themes
 
-# Install Brave browser
+# Install Brave browser (needs PTY for yay/AUR first-run init)
 if ! command -v brave-browser &>/dev/null; then
-  yay -S --noconfirm --needed brave-bin
+  curl -fsS https://dl.brave.com/install.sh -o /tmp/brave-install.sh
+  script -qec "sudo bash /tmp/brave-install.sh" /dev/null 2>/dev/null || \
+    echo "Warning: Brave install failed, install manually with: yay -S brave-bin"
+  rm -f /tmp/brave-install.sh
 fi
 
 # Setup Brave policies and extensions if installed
