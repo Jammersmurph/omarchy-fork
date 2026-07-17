@@ -1,8 +1,8 @@
-# Omarchy
+# Jammarchy
 
-Omarchy is a beautiful, modern & opinionated Linux distribution by DHH.
+Jammarchy is a fork of [Omarchy](https://omarchy.org) — a beautiful, modern & opinionated Linux distribution by DHH.
 
-Read more at [omarchy.org](https://omarchy.org).
+Customized with NetworkManager, GRUB bootloader, ext4, Aetheria theme, and more.
 
 ## Install
 
@@ -12,4 +12,4 @@ bash <(curl -sL https://omarchy.createvc.org)
 
 ## License
 
-Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
+Jammarchy is released under the [MIT License](https://opensource.org/licenses/MIT).

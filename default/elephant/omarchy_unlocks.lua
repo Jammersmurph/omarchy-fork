@@ -7,7 +7,7 @@
 -- <theme>. Both run in a floating terminal so sudo can prompt.
 --
 Name = "omarchyunlocks"
-NamePretty = "Omarchy Unlocks"
+NamePretty = "Jammarchy Unlocks"
 HideFromProviderlist = true
 FixedOrder = true
 

@@ -1,5 +1,5 @@
 Name = "omarchyBackgroundSelector"
-NamePretty = "Omarchy Background Selector"
+NamePretty = "Jammarchy Background Selector"
 Cache = false
 HideFromProviderlist = true
 SearchName = true

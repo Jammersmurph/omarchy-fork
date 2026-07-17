@@ -4,7 +4,7 @@
 
 set -e
 
-echo -e "\e[32mUpdate Omarchy\e[0m"
+echo -e "\e[32mUpdate Jammarchy\e[0m"
 
 omarchy-update-time
 
