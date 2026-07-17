@@ -39,8 +39,5 @@ fi
 # Must have grub installed
 command -v grub-install &>/dev/null || abort "GRUB bootloader"
 
-# Must have btrfs root filesystem
-[[ $(findmnt -n -o FSTYPE /) = "btrfs" ]] || abort "Btrfs root filesystem" 
-
 # Cleared all guards
 echo "Guards: OK"

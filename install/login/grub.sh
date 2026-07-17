@@ -1,6 +1,6 @@
 # Configure mkinitcpio for boot
 sudo tee /etc/mkinitcpio.conf.d/omarchy_hooks.conf <<EOF >/dev/null
-HOOKS=(base udev plymouth keyboard autodetect microcode modconf kms keymap consolefont block encrypt filesystems fsck btrfs-overlayfs)
+HOOKS=(base udev plymouth keyboard autodetect microcode modconf kms keymap consolefont block encrypt filesystems fsck)
 EOF
 sudo tee /etc/mkinitcpio.conf.d/thunderbolt_module.conf <<EOF >/dev/null
 MODULES+=(thunderbolt)
@@ -43,19 +43,6 @@ fi
 
 # Generate GRUB config
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-# Set up snapper for root snapshots
-if ! sudo snapper list-configs 2>/dev/null | grep -q "root"; then
-  sudo snapper -c root create-config /
-fi
-sudo cp "$OMARCHY_PATH/default/snapper/root" /etc/snapper/configs/root
-
-# Disable btrfs quotas — full qgroup accounting is a major performance drag
-sudo btrfs quota disable / 2>/dev/null || true
-
-# Enable grub-btrfs for automatic snapshot detection
-chrootable_systemctl_enable grub-btrfs.path
-chrootable_systemctl_enable grub-btrfsd.service
 
 echo "Re-enabling mkinitcpio hooks..."
 
