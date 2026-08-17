@@ -6,10 +6,14 @@ sudo ln -snf /usr/share/icons/Adwaita/symbolic/actions/go-next-symbolic.svg /usr
 mkdir -p ~/.config/omarchy/themes
 
 # Install Brave browser (AUR only, needs PTY for yay first-run init)
+# All install scripts run with stdin disconnected, so yay's internal sudo prompts
+# get EOF and fail. Grant NOPASSWD for pacman temporarily, then remove it.
 if ! command -v brave-browser &>/dev/null; then
-  sudo -v
+  echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/pacman" | sudo tee /etc/sudoers.d/yay-pacman >/dev/null
+  sudo chmod 440 /etc/sudoers.d/yay-pacman
   script -qec "yay -Sy --needed --noconfirm brave-bin" /dev/null 2>/dev/null || \
     echo "Warning: Brave install failed, install manually with: yay -S brave-bin"
+  sudo rm -f /etc/sudoers.d/yay-pacman
 fi
 
 # Setup Brave policies and extensions if installed
