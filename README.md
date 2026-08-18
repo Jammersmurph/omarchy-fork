@@ -4,6 +4,20 @@ Jammarchy is Jameson's customized distribution built on Omarchy Quattro.
 
 It retains Quattro's shell, security updates, package update pipeline, migrations, snapshots, and new features while layering Jammarchy's applications, theme, bindings, and branding on top. Read more about the upstream system at [omarchy.org](https://omarchy.org).
 
+## Install
+
+Install the latest official Omarchy Quattro release first. After logging into the desktop, run:
+
+```bash
+installer=$(mktemp)
+curl -fsSL https://raw.githubusercontent.com/Jammersmurph/omarchy-fork/main/boot.sh -o "$installer" && bash "$installer"
+rm -f "$installer"
+```
+
+The setup asks for your sudo password at most once, installs Brave and Alacritty, applies the Jammarchy user and system overlay, and installs package and post-update hooks. If the sudo credential cannot be reused, setup fails instead of opening another prompt. Official Omarchy updates remain enabled and automatically reapply the installed overlay; rerun the command above when you want to pull newer Jammarchy changes from `main`.
+
+Jammarchy configures Brave enterprise policy to force-install 1Password and uBlock Origin from Google's extension update service. Existing files replaced by setup are preserved beside the original with a timestamped `.pre-jammarchy.*` suffix.
+
 ## The Omarchy Manual
 
 The manual lives in [`manual/`](manual/), which is its authoritative source. It's

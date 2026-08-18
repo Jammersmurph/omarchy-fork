@@ -4,8 +4,8 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-grep -qx "brave-bin" "$ROOT/install/omarchy-base.packages" || fail "Brave is a core package"
-grep -qx "alacritty" "$ROOT/install/omarchy-base.packages" || fail "Alacritty is a core package"
+grep -q "brave-bin" "$ROOT/setup.sh" || fail "setup installs Brave"
+grep -q "pacman -S --needed --noconfirm alacritty" "$ROOT/setup.sh" || fail "setup installs Alacritty"
 grep -q "brave-browser.desktop" "$ROOT/default/applications/mimeapps.list" || fail "Brave is the seeded browser"
 grep -q "brave-browser.desktop" "$ROOT/bin/omarchy-provision-user" || fail "Brave is the finalized browser"
 grep -q "CRAG666/code_runner.nvim" "$ROOT/default/nvim/code-runner.lua" || fail "Code Runner is provisioned"
