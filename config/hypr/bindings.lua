@@ -1,41 +1,54 @@
--- Application bindings.
+-- Jammarchy's application layout replaces these Quattro defaults.
+for _, keys in ipairs({
+  "SUPER + RETURN",
+  "SUPER + ALT + RETURN",
+  "SUPER + SHIFT + F",
+  "SUPER + SHIFT + B",
+  "SUPER + S",
+  "SUPER + G",
+  "SUPER + O",
+  "SUPER + SLASH",
+  "SUPER + SHIFT + S",
+  "SUPER + SHIFT + A",
+  "SUPER + C",
+  "SUPER + SHIFT + G",
+  "SUPER + ALT + G",
+  "SUPER + SPACE",
+  "SUPER + ALT + SPACE",
+  "SUPER + SHIFT + code:201",
+}) do
+  hl.unbind(keys)
+end
+
 o.bind("SUPER + RETURN", "Terminal", { omarchy = "terminal" })
-o.bind("SUPER + ALT + RETURN", "Tmux", { omarchy = "terminal-tmux" })
-o.bind("SUPER + SHIFT + RETURN", "Browser", { omarchy = "browser" })
+o.bind("SUPER + ALT + RETURN", "Tmux", "omarchy-launch-terminal tmux new")
 o.bind("SUPER + SHIFT + F", "File manager", { omarchy = "nautilus" })
-o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", { omarchy = "nautilus-cwd" })
-o.bind("SUPER + SHIFT + B", "Browser", { omarchy = "browser" })
-o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", { omarchy = "browser --private" })
-o.bind("SUPER + SHIFT + M", "Music", { omarchy = "or-focus spotify" })
-o.bind("SUPER + SHIFT + ALT + M", "Music TUI", { tui = "cliamp", focus = true })
-o.bind("SUPER + SHIFT + N", "Editor", { omarchy = "editor" })
-o.bind("SUPER + SHIFT + D", "Docker", { tui = "lazydocker" })
-o.bind("SUPER + SHIFT + G", "Signal", { launch = "signal-desktop", focus = "^signal$" })
-o.bind("SUPER + SHIFT + O", "Obsidian", { launch = "obsidian", focus = "^obsidian$" })
-o.bind("SUPER + SHIFT + W", "Typora", { launch = "typora --enable-wayland-ime" })
-o.bind("SUPER + SHIFT + SLASH", "Passwords", { launch = "1password" })
+o.bind("SUPER + B", "Browser", { omarchy = "browser" })
+o.bind("SUPER + SHIFT + B", "Browser (private)", { omarchy = "browser --private" })
+o.bind("SUPER + M", "Music", { omarchy = "spotify" })
+o.bind("SUPER + N", "Editor", { omarchy = "editor" })
+o.bind("SUPER + S", "Activity", { tui = "btop" })
+o.bind("SUPER + D", "Docker", { tui = "lazydocker" })
+o.bind("SUPER + G", "Signal", { omarchy = "signal" })
+o.bind("SUPER + O", "Obsidian", { launch = "obsidian", focus = "^obsidian$" })
+o.bind("SUPER + SLASH", "Passwords", { omarchy = "1password" })
+o.bind("SUPER + SHIFT + S", "Sober", { launch = "flatpak run org.vinegarhq.Sober" })
 
--- Web app bindings.
-o.bind("SUPER + SHIFT + A", "ChatGPT", { webapp = "https://chatgpt.com" })
-o.bind("SUPER + SHIFT + ALT + A", "Grok", { webapp = "https://grok.com" })
-o.bind("SUPER + SHIFT + C", "Calendar", { webapp = "https://app.hey.com/calendar/weeks/" })
-o.bind("SUPER + SHIFT + E", "Email", { webapp = "https://app.hey.com" })
-o.bind("SUPER + SHIFT + Y", "YouTube", { webapp = "https://youtube.com/" })
-o.bind("SUPER + SHIFT + ALT + G", "WhatsApp", { webapp = "https://web.whatsapp.com/", focus = true })
-o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", { webapp = "https://messages.google.com/web/conversations", focus = true })
-o.bind("SUPER + SHIFT + P", "Google Photos", { webapp = "https://photos.google.com/", focus = true })
-o.bind("SUPER + SHIFT + S", "Google Maps", { webapp = "https://maps.google.com/", focus = true })
-o.bind("SUPER + SHIFT + X", "X", { webapp = "https://x.com/" })
-o.bind("SUPER + SHIFT + ALT + X", "X Post", { webapp = "https://x.com/compose/post" })
+o.bind("SUPER + A", "ChatGPT", { webapp = "https://chatgpt.com" })
+o.bind("SUPER + SHIFT + A", "Grok", { webapp = "https://grok.com" })
+o.bind("SUPER + C", "Wi-Fi", { tui = "impala" })
+o.bind("SUPER + E", "Email", { webapp = "https://app.hey.com" })
+o.bind("SUPER + Y", "YouTube", { webapp = "https://youtube.com/", focus = true })
+o.bind("SUPER + SHIFT + G", "WhatsApp", {
+  webapp = "https://web.whatsapp.com/",
+  focus = true,
+})
+o.bind("SUPER + ALT + G", "Google Messages", {
+  webapp = "https://messages.google.com/web/conversations",
+  focus = true,
+})
+o.bind("SUPER + SHIFT + T", "Tailscale", "omarchy-shell omarchy.tailscale toggle")
 
--- Add extra bindings below.
--- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
-
--- Overwrite existing bindings with hl.unbind() first if needed.
--- hl.unbind("SUPER + SPACE")
--- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu")
-
--- Logitech MX Keys examples:
--- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
--- o.bind("SUPER + H", nil, "voxtype record toggle")
--- o.bind("SUPER + PERIOD", nil, { omarchy = "walker -m symbols" })
+o.bind("SUPER + SPACE", "Launch apps", "omarchy-menu toggle apps")
+o.bind("SUPER + ALT + SPACE", "Jammarchy menu", "omarchy-menu toggle root")
+o.bind("SUPER + SHIFT + code:201", "Jammarchy menu", "omarchy-menu toggle root")

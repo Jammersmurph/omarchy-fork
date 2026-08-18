@@ -1,6 +1,7 @@
 [SddmGreeterTheme]
 Name=Jammarchy
-Description=Minimal terminal-style login theme matching the GRUB bootloader aesthetic
+Description=Minimal terminal-style login theme matching the Limine bootloader aesthetic
 Author=Jammarchy
 Type=sddm-theme
 Version=1.0
+QtVersion=6

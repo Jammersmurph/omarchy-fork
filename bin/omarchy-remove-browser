@@ -7,17 +7,14 @@
 
 set_fallback_default_browser() {
   local current_browser
-  current_browser=$(xdg-settings get default-web-browser)
+  current_browser=$(env -u BROWSER xdg-settings get default-web-browser)
 
-  if [[ $current_browser != "$1" ]]; then
+  if [[ $current_browser != $1 ]]; then
     return
   fi
 
-  if omarchy-cmd-present brave; then
-    xdg-settings set default-web-browser brave-browser.desktop
-    xdg-mime default brave-browser.desktop x-scheme-handler/http
-    xdg-mime default brave-browser.desktop x-scheme-handler/https
-    xdg-mime default brave-browser.desktop text/html
+  if omarchy-cmd-present chromium; then
+    env -u BROWSER xdg-settings set default-web-browser chromium.desktop || true
   fi
 }
 
@@ -42,18 +39,18 @@ brave)
   omarchy-pkg-drop brave-bin
   rm -f ~/.config/brave-flags.conf
 
-  if omarchy-pkg-missing brave-origin-beta-bin; then
-    sudo rm -rf /etc/brave
+  if omarchy-pkg-missing brave-origin-bin; then
+    sudo rm -f /etc/brave/policies/managed/color.json
   fi
   ;;
 brave-origin)
   echo "Removing Brave Origin..."
-  set_fallback_default_browser brave-origin-beta.desktop
-  omarchy-pkg-drop brave-origin-beta-bin
-  rm -f ~/.config/brave-origin-beta-flags.conf
+  set_fallback_default_browser brave-origin.desktop
+  omarchy-pkg-drop brave-origin-bin
+  rm -f ~/.config/brave-origin-flags.conf
 
   if omarchy-pkg-missing brave-bin; then
-    sudo rm -rf /etc/brave
+    sudo rm -f /etc/brave/policies/managed/color.json
   fi
   ;;
 firefox)
