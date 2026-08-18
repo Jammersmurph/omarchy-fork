@@ -2,7 +2,6 @@
 # The ISO builder also reads this file when constructing the offline mirror.
 
 aether
-alacritty
 alsa-utils
 asdcontrol
 avahi
@@ -14,7 +13,6 @@ bluez-utils
 bolt
 brightnessctl
 btop
-brave-bin
 chromium
 clang
 cliamp
